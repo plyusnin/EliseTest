@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="SliderDemo.Shell.Views.SliderConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:slider="clr-namespace:SliderDemo.Shell.ViewModels.Slider"
+             xmlns:converters="clr-namespace:SliderDemo.Shell.Views.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance slider:SliderConfigurationViewModel}">
+    <StackPanel>
+        <TextBlock Text="{Binding CustomName}" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Target="{Binding ElementName=ConversionSelector}">Rounding</Label>
+            <ListBox Grid.Column="1" Name="ConversionSelector"
+                     ItemsSource="{Binding Roundings}"
+                     SelectedItem="{Binding SelectedRounding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type slider:NumberRounding}">
+                        <TextBlock
+                            Text="{Binding Converter={x:Static converters:EnumDescriptionConverter.Instance}}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Digits"
+                   Target="{Binding ElementName=DigEdit}" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Digits}" Name="DigEdit" />
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Minimum"
+                   Target="{Binding ElementName=MinEdit}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MinValue}" Name="MinEdit" />
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Value"
+                   Target="{Binding ElementName=ValEdit}" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding UserValue}" Name="ValEdit" />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Maximum"
+                   Target="{Binding ElementName=MaxEdit}" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding MaxValue}" Name="MaxEdit" />
+
+            <Button Grid.Row="4" Grid.Column="0" Content="Cancel" Command="{Binding Cancel}" />
+            <Button Grid.Row="4" Grid.Column="1" Content="Ok" Command="{Binding Accept}" />
+
+        </Grid>
+    </StackPanel>
+</UserControl>

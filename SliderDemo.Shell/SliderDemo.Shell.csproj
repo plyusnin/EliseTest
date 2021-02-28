@@ -4,6 +4,13 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>netcoreapp3.1-windows</TargetFramework>
         <UseWPF>true</UseWPF>
+        <LangVersion>9</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ReactiveUI" Version="13.1.1" />
+      <PackageReference Include="ReactiveUI.WPF" Version="13.1.1" />
+    </ItemGroup>
 
 </Project>
