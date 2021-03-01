@@ -2,6 +2,7 @@
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
+using System.Windows;
 using SliderDemo.Shell.Views;
 
 namespace SliderDemo.Shell.Services
@@ -14,7 +15,7 @@ namespace SliderDemo.Shell.Services
             var viewModel = CreateViewModel(CurrentConfiguration);
             try
             {
-                var window = new TuningWindow(viewModel);
+                var window = new TuningWindow(viewModel) { Owner = Application.Current.MainWindow };
                 var windowClosed = Observable.FromEventPattern(h => window.Closed += h,
                                                                h => window.Closed -= h);
                 var resultAwaiter = viewModel.Result
