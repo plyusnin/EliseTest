@@ -5,6 +5,11 @@
     <Style TargetType="Label">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="5" />
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ThemeForeground}" />
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <!-- Text Box -->
@@ -15,6 +20,11 @@
         <Setter Property="BorderBrush">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource ThemeControlBorder}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ThemeForeground}" />
             </Setter.Value>
         </Setter>
         <Setter Property="BorderThickness" Value="1" />
@@ -53,6 +63,11 @@
         <Setter Property="BorderBrush">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource ThemeControlBorder}" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource ThemeForeground}" />
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
