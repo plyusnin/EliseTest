@@ -17,6 +17,7 @@ namespace SliderDemo.Shell.ViewModels.Slider
         private readonly CompositeDisposable _cleanup = new();
         private readonly ObservableAsPropertyHelper<int> _precision;
         private readonly ObservableAsPropertyHelper<bool> _userValueError;
+        private readonly ObservableAsPropertyHelper<bool> _canSetDigits;
         private string _customName;
 
         private int _digits;
@@ -68,6 +69,10 @@ namespace SliderDemo.Shell.ViewModels.Slider
                 .ToProperty(this, x => x.BoundingError, out _boundingError)
                 .DisposeWith(_cleanup);
 
+            this.WhenAnyValue(x => x.SelectedRounding)
+                .Select(r => r == NumberRounding.Real)
+                .ToProperty(this, x => x.CanSetDigits, out _canSetDigits);
+
             Cancel = ReactiveCommand.Create(() => { });
             Accept = ReactiveCommand.Create(() => { });
         }
@@ -81,6 +86,8 @@ namespace SliderDemo.Shell.ViewModels.Slider
 
         public bool BoundingError  => _boundingError.Value;
         public bool UserValueError => _userValueError.Value;
+
+        public bool CanSetDigits => _canSetDigits.Value;
 
         public int Digits
         {

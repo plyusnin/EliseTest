@@ -45,7 +45,8 @@
 
             <Label Grid.Row="0" Grid.Column="0" Content="Digits"
                    Target="{Binding ElementName=DigEdit}" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Digits}" Name="DigEdit" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="DigEdit"
+                     Text="{Binding Digits}" IsEnabled="{Binding CanSetDigits}" />
 
             <Label Grid.Row="1" Grid.Column="0" Content="Minimum"
                    Target="{Binding ElementName=MinEdit}" />

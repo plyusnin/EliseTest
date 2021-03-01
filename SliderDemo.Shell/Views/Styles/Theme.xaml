@@ -22,16 +22,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
                     <Border Background="{TemplateBinding Background}"
-                            x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}"
+                            Name="Border" BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="4">
                         <ScrollViewer x:Name="PART_ContentHost" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background"
-                                    Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd" />
-                            <Setter Property="Foreground"
-                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                            <Setter Property="Background" TargetName="Border">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ThemeBackground}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource ThemeDisabledForeground}" />
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
