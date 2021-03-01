@@ -6,8 +6,14 @@
         xmlns:slider="clr-namespace:SliderDemo.Shell.ViewModels.Slider"
         xmlns:views="clr-namespace:SliderDemo.Shell.Views"
         mc:Ignorable="d"
-        Title="Control Tuning" Width="300" SizeToContent="Height"
+        Title="Control Tuning" Width="180" SizeToContent="Height"
         WindowStyle="ToolWindow">
+    <Window.Background>
+        <SolidColorBrush Color="{StaticResource ThemeBackground}" />
+    </Window.Background>
+    <Window.Foreground>
+        <SolidColorBrush Color="{StaticResource ThemeForeground}" />
+    </Window.Foreground>
     <Window.Resources>
         <DataTemplate DataType="{x:Type slider:SliderConfigurationViewModel}">
             <views:SliderConfigurationView />

@@ -6,7 +6,13 @@
         xmlns:views="clr-namespace:SliderDemo.Shell.Views"
         xmlns:viewModels="clr-namespace:SliderDemo.Shell.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+        Title="Slider Demo" Height="450" Width="800" d:DataContext="{d:DesignInstance viewModels:MainViewModel}">
+    <Window.Background>
+        <SolidColorBrush Color="{StaticResource ThemeBackground}" />
+    </Window.Background>
+    <TextBlock.Foreground>
+        <SolidColorBrush Color="{StaticResource ThemeForeground}" />
+    </TextBlock.Foreground>
     <Grid>
         <StackPanel VerticalAlignment="Bottom">
             <views:SliderView

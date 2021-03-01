@@ -9,7 +9,10 @@
     <UserControl.InputBindings>
         <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Tune}" />
     </UserControl.InputBindings>
-    <Border CornerRadius="8" Background="#EFF6F8" Padding="13,3">
+    <Border CornerRadius="12" Padding="13,2">
+        <Border.Background>
+            <SolidColorBrush Color="{StaticResource ThemeSliderBackground}" />
+        </Border.Background>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -17,12 +20,15 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="{Binding Name}" />
+            <TextBlock Grid.Column="0" Text="{Binding Name}" FontWeight="SemiBold" />
             <Slider Grid.Column="1"
                     Value="{Binding UserValue}"
                     Minimum="{Binding MinValue}"
                     Maximum="{Binding MaxValue}" />
             <TextBlock Grid.Column="2" Text="{Binding OutputValueString}" />
         </Grid>
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.2" BlurRadius="3" ShadowDepth="1" />
+        </Border.Effect>
     </Border>
 </UserControl>

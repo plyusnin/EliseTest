@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="ThemeBackground">#e0e3e6</Color>
+    <Color x:Key="ThemeControlBorder">#c1c2c4</Color>
+    <Color x:Key="ThemeControlBackground">White</Color>
+    <Color x:Key="ThemeButtonMouseOverBackground">#E3F6FF</Color>
+    <Color x:Key="ThemeButtonPressedBackground">#c6c6c7</Color>
+    <Color x:Key="ThemeSelectorActive">#4ca2e3</Color>
+    <Color x:Key="ThemeSelectorActiveText">#ffffff</Color>
+    
+    <Color x:Key="ThemeForeground">#221e59</Color>
+    
+    <Color x:Key="ThemeSliderBackground">#f5f7f9</Color>
+</ResourceDictionary>

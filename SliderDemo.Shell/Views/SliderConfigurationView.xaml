@@ -9,7 +9,7 @@
              d:DesignHeight="300" d:DesignWidth="300"
              d:DataContext="{d:DesignInstance slider:SliderConfigurationViewModel}">
     <StackPanel>
-        <TextBlock Text="{Binding CustomName}" />
+        <TextBox Text="{Binding CustomName}" />
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -17,13 +17,14 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Target="{Binding ElementName=ConversionSelector}">Rounding</Label>
-            <ListBox Grid.Column="1" Name="ConversionSelector"
+            <ListBox Grid.Column="1" Name="ConversionSelector" Width="60"
                      ItemsSource="{Binding Roundings}"
-                     SelectedItem="{Binding SelectedRounding}">
+                     SelectedItem="{Binding SelectedRounding}"
+                     Style="{StaticResource RadioListBox}"
+                     FontSize="15" FontWeight="Medium">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type slider:NumberRounding}">
-                        <TextBlock
-                            Text="{Binding Converter={x:Static converters:EnumDescriptionConverter.Instance}}" />
+                        <TextBlock Text="{Binding Converter={x:Static converters:EnumDescriptionConverter.Instance}}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -58,8 +59,10 @@
                    Target="{Binding ElementName=MaxEdit}" />
             <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding MaxValue}" Name="MaxEdit" />
 
-            <Button Grid.Row="4" Grid.Column="0" Content="Cancel" Command="{Binding Cancel}" />
-            <Button Grid.Row="4" Grid.Column="1" Content="Ok" Command="{Binding Accept}" />
+            <Button Grid.Row="4" Grid.Column="0" Content="X" Command="{Binding Cancel}"
+                    Margin="10, 5" />
+            <Button Grid.Row="4" Grid.Column="1" Content="V" Command="{Binding Accept}"
+                    Margin="10, 5" />
 
         </Grid>
     </StackPanel>
