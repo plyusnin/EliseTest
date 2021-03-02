@@ -56,8 +56,8 @@ namespace SliderDemo.Shell.ViewModels.Slider
             ValueCorrection(x => x.MaxValue).DisposeWith(_cleanup);
 
             // Bounding checks
-            this.WhenAnyValue(x => x.MaxValue,
-                              x => x.MinValue,
+            this.WhenAnyValue(x => x.MinValue,
+                              x => x.MaxValue,
                               x => x.UserValue,
                               (min, max, user) => user < min || user > max)
                 .ToProperty(this, x => x.UserValueError, out _userValueError)

@@ -9,6 +9,7 @@
     <Color x:Key="ThemeSelectorActiveText">#ffffff</Color>
     
     <Color x:Key="ThemeForeground">#221e59</Color>
+    <Color x:Key="ThemeErrorForeground">#6E2822</Color>
     <Color x:Key="ThemeDisabledForeground">#5D606C</Color>
     
     <Color x:Key="ThemeSliderBackground">#f5f7f9</Color>
