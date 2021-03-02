@@ -52,10 +52,10 @@
         </controls:ConfigPropertyEditor>
 
         <UniformGrid Rows="1">
-            <Button Content="X" Command="{Binding Cancel}"
-                    Margin="10, 5" />
-            <Button Content="V" Command="{Binding Accept}"
-                    Margin="10, 5" />
+            <Button Content="close" Style="{StaticResource IconButton}"
+                    Command="{Binding Cancel}" />
+            <Button Content="done" Style="{StaticResource IconButton}"
+                    Command="{Binding Accept}" />
         </UniformGrid>
 
     </StackPanel>
