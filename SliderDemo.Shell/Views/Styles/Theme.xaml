@@ -167,4 +167,8 @@
         </Setter>
     </Style>
 
+    <!-- Number Up Down -->
+    <Style TargetType="{x:Type controls:NumberEdit}" BasedOn="{StaticResource {x:Type TextBox}}" />
+    
+
 </ResourceDictionary>
