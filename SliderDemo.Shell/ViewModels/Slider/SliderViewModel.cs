@@ -5,7 +5,7 @@ using SliderDemo.Shell.Services;
 
 namespace SliderDemo.Shell.ViewModels.Slider
 {
-    public class SliderViewModel : ReactiveObject
+    public class SliderViewModel : ReactiveObject, IControlViewModel
     {
         private readonly ObservableAsPropertyHelper<bool> _isEditable;
         private readonly ObservableAsPropertyHelper<string> _outputValueString;

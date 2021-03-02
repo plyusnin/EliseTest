@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using SliderDemo.Shell.Services;
 using SliderDemo.Shell.ViewModels;
+using SliderDemo.Shell.ViewModels.Slider;
 
 namespace SliderDemo.Shell
 {
@@ -9,7 +11,7 @@ namespace SliderDemo.Shell
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            var mainViewModel = new MainViewModel();
+            var mainViewModel = new MainViewModel(new SliderViewModelFactory(new SliderControlTuningService()));
             var mainWindow    = new MainWindow(mainViewModel);
             mainWindow.Show();
         }

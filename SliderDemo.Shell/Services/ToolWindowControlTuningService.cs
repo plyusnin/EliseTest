@@ -20,7 +20,6 @@ namespace SliderDemo.Shell.Services
                                                                h => window.Closed -= h);
                 var resultAwaiter = viewModel.Result
                                              .Merge(windowClosed.Select(_ => DialogResult.Cancelled))
-                                             .Do(r => Console.WriteLine(r))
                                              .FirstAsync()
                                              .ToTask();
                 window.Show();
