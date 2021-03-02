@@ -35,6 +35,7 @@ namespace SliderDemo.Shell.ViewModels
                                            .ToList();
         }
 
+        /// <summary>Controls for a "canvas"</summary>
         public IList<IControlViewModel> Controls { get; }
     }
 }

@@ -6,6 +6,7 @@ using System.Windows.Data;
 
 namespace SliderDemo.Shell.Views.Converters
 {
+    /// <summary>Converts an enum value to a string by it's <see cref="DescriptionAttribute" /> value</summary>
     public class EnumDescriptionConverter : IValueConverter
     {
         public static EnumDescriptionConverter Instance { get; } = new();

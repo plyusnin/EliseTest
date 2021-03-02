@@ -6,6 +6,7 @@ using System.Windows.Data;
 
 namespace SliderDemo.Shell.Views.Converters
 {
+    /// <summary>Creates <see cref="Rect" /> object from it's width and height values</summary>
     public class SizeToRectConverter : IMultiValueConverter
     {
         public static SizeToRectConverter Instance { get; } = new();
@@ -14,7 +15,7 @@ namespace SliderDemo.Shell.Views.Converters
         {
             if (values.Any(v => v == DependencyProperty.UnsetValue))
                 return new Rect();
-            
+
             if (values.Length != 2 || !(values[0] is double) || !(values[1] is double))
                 throw new ArgumentException(
                     $"\"{nameof(values)}\" should contain 2 double values for width and height correspondingly");

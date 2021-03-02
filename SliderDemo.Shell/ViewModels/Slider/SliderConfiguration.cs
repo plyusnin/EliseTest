@@ -2,11 +2,22 @@
 {
     public record SliderConfiguration
     {
-        public string         Name      { get; init; }
-        public double         Minimum   { get; init; }
-        public double         Maximum   { get; init; }
-        public double         Value     { get; init; }
-        public int            Precision { get; init; }
-        public NumberRounding Rounding  { get; init; }
+        /// <summary>The name of the slider</summary>
+        public string Name { get; init; }
+
+        /// <summary>Minimum value</summary>
+        public double Minimum { get; init; }
+
+        /// <summary>Maximum value</summary>
+        public double Maximum { get; init; }
+
+        /// <summary>User value</summary>
+        public double Value { get; init; }
+
+        /// <summary>A number of digits after a separator</summary>
+        public int Precision { get; init; }
+
+        /// <summary>Rounding kind</summary>
+        public NumberRounding Rounding { get; init; }
     }
 }

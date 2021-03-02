@@ -21,6 +21,10 @@
         </Grid.RowDefinitions>
         <ItemsControl ItemsSource="{Binding Controls}" VerticalAlignment="Bottom">
             <ItemsControl.Resources>
+                <!--
+                Data templates for another types of controls can be placed
+                here and can be automatically applied by the WPF engine. 
+                -->
                 <DataTemplate DataType="{x:Type slider:SliderViewModel}">
                     <views:SliderView Width="300" />
                 </DataTemplate>
@@ -32,6 +36,7 @@
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>
+        
         <TextBlock Grid.Row="1" FontWeight="SemiBold" Margin="10"
                    HorizontalAlignment="Center"
                    Text="Double click a slider to open a configuration window.">

@@ -6,6 +6,7 @@ using SliderDemo.Shell.Views;
 
 namespace SliderDemo.Shell.Services.Implementations
 {
+    /// <summary>An implementation of <see cref="IDialogService" /> which shows a configuration window in a ToolWindow</summary>
     public class ToolWindowDialogService : IDialogService
     {
         public async Task<DialogResult> RequestDialog(IControlConfigurationViewModel ViewModel)
