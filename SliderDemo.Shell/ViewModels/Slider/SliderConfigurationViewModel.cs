@@ -14,10 +14,10 @@ namespace SliderDemo.Shell.ViewModels.Slider
     public class SliderConfigurationViewModel : ReactiveObject, IControlConfigurationViewModel, IDisposable
     {
         private readonly ObservableAsPropertyHelper<bool> _boundingError;
+        private readonly ObservableAsPropertyHelper<bool> _canSetDigits;
         private readonly CompositeDisposable _cleanup = new();
         private readonly ObservableAsPropertyHelper<int> _precision;
         private readonly ObservableAsPropertyHelper<bool> _userValueError;
-        private readonly ObservableAsPropertyHelper<bool> _canSetDigits;
         private string _customName;
 
         private int _digits;
@@ -73,8 +73,11 @@ namespace SliderDemo.Shell.ViewModels.Slider
                 .Select(r => r == NumberRounding.Real)
                 .ToProperty(this, x => x.CanSetDigits, out _canSetDigits);
 
+            var canAccept = this.WhenAnyValue(x => x.BoundingError, x => x.UserValueError,
+                                              (b, v) => !(b || v));
+
             Cancel = ReactiveCommand.Create(() => { });
-            Accept = ReactiveCommand.Create(() => { });
+            Accept = ReactiveCommand.Create(() => { }, canAccept);
         }
 
         public ReactiveCommand<Unit, Unit> Accept { get; }
