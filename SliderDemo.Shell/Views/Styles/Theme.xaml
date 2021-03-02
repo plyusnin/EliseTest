@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:SliderDemo.Shell.Views.Controls">
+                    xmlns:controls="clr-namespace:SliderDemo.Shell.Views.Controls"
+                    xmlns:views="clr-namespace:SliderDemo.Shell.Views">
 
     <!-- Label -->
     <Style TargetType="Label">
@@ -168,7 +169,20 @@
     </Style>
 
     <!-- Number Up Down -->
-    <Style TargetType="{x:Type controls:NumberEdit}" BasedOn="{StaticResource {x:Type TextBox}}" />
-    
+    <Style TargetType="{x:Type controls:NumberEdit}"
+           BasedOn="{StaticResource {x:Type TextBox}}" />
+
+    <!-- Slider View -->
+    <Style TargetType="views:SliderView">
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <SolidColorBrush Color="{StaticResource ThemeDisabledForeground}" />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

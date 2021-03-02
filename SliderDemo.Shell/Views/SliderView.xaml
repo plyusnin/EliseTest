@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:slider="clr-namespace:SliderDemo.Shell.ViewModels.Slider"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance slider:SliderViewModel}">
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance slider:SliderViewModel}"
+             IsEnabled="{Binding IsEditable}">
     <UserControl.InputBindings>
         <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding Tune}" />
     </UserControl.InputBindings>

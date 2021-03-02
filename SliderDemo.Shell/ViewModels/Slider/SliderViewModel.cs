@@ -7,6 +7,7 @@ namespace SliderDemo.Shell.ViewModels.Slider
 {
     public class SliderViewModel : ReactiveObject
     {
+        private readonly ObservableAsPropertyHelper<bool> _isEditable;
         private readonly ObservableAsPropertyHelper<string> _outputValueString;
 
         private double _maxValue;
@@ -32,6 +33,10 @@ namespace SliderDemo.Shell.ViewModels.Slider
             Tune = ReactiveCommand.CreateFromTask(() => TuningService.Tune(this.Configuration));
             Tune.ObserveOnDispatcher()
                 .BindTo(this, x => x.Configuration);
+
+            Tune.IsExecuting
+                .Select(x => !x)
+                .ToProperty(this, x => x.IsEditable, out _isEditable);
         }
 
         public ReactiveCommand<Unit, SliderConfiguration> Tune { get; }
@@ -59,6 +64,8 @@ namespace SliderDemo.Shell.ViewModels.Slider
         }
 
         public string OutputValueString => _outputValueString.Value;
+
+        public bool IsEditable => _isEditable.Value;
 
         public string Name
         {
