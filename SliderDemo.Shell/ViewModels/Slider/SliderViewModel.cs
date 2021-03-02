@@ -29,7 +29,7 @@ namespace SliderDemo.Shell.ViewModels.Slider
                               (v, p) => v.ToString("F" + p))
                 .ToProperty(this, x => x.OutputValueString, out _outputValueString);
 
-            Tune = ReactiveCommand.CreateFromTask(() => TuningService.Tune(Configuration));
+            Tune = ReactiveCommand.CreateFromTask(() => TuningService.Tune(this.Configuration));
             Tune.ObserveOnDispatcher()
                 .BindTo(this, x => x.Configuration);
         }

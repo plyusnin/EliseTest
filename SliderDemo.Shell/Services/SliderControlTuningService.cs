@@ -10,6 +10,7 @@ namespace SliderDemo.Shell.Services
             return new()
             {
                 Name      = ViewModel.CustomName,
+                Rounding  = ViewModel.SelectedRounding,
                 Minimum   = ViewModel.MinValue,
                 Maximum   = ViewModel.MaxValue,
                 Value     = ViewModel.UserValue,
