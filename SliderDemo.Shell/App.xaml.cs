@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using SliderDemo.Shell.Services;
+using SliderDemo.Shell.Services.Implementations;
 using SliderDemo.Shell.ViewModels;
 using SliderDemo.Shell.ViewModels.Slider;
 
@@ -11,8 +11,14 @@ namespace SliderDemo.Shell
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            var mainViewModel = new MainViewModel(new SliderViewModelFactory(new SliderControlTuningService()));
-            var mainWindow    = new MainWindow(mainViewModel);
+            
+            // In a real project, all this things should be taken
+            // from a DI-container.
+            var dialogService          = new ToolWindowDialogService();
+            var sliderViewModelFactory = new SliderViewModelFactory(new SliderControlTuningService(dialogService));
+            var mainViewModel          = new MainViewModel(sliderViewModelFactory);
+            
+            var mainWindow             = new MainWindow(mainViewModel);
             mainWindow.Show();
         }
     }

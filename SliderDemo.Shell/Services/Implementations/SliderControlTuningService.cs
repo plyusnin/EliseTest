@@ -1,10 +1,12 @@
 ﻿using SliderDemo.Shell.ViewModels.Slider;
 
-namespace SliderDemo.Shell.Services
+namespace SliderDemo.Shell.Services.Implementations
 {
     public class
-        SliderControlTuningService : ToolWindowControlTuningService<SliderConfiguration, SliderConfigurationViewModel>
+        SliderControlTuningService : ControlTuningServiceBase<SliderConfiguration, SliderConfigurationViewModel>
     {
+        public SliderControlTuningService(IDialogService DialogService) : base(DialogService) { }
+
         protected override SliderConfiguration CreateConfig(SliderConfigurationViewModel ViewModel)
         {
             return new()
