@@ -5,11 +5,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:slider="clr-namespace:SliderDemo.Shell.ViewModels.Slider"
         xmlns:views="clr-namespace:SliderDemo.Shell.Views"
-        mc:Ignorable="d" Width="180" SizeToContent="Height"
-        WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
-    <Window.Background>
-        <SolidColorBrush Color="{StaticResource ThemeBackground}" />
-    </Window.Background>
+        mc:Ignorable="d" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True"
+        AllowsTransparency="True" Background="Transparent">
     <Window.Foreground>
         <SolidColorBrush Color="{StaticResource ThemeForeground}" />
     </Window.Foreground>
@@ -18,7 +16,13 @@
             <views:SliderConfigurationView />
         </DataTemplate>
     </Window.Resources>
-    <Grid>
-        <ContentPresenter Content="{Binding}" Margin="5" />
+    <Grid Margin="40" Width="180" MouseDown="StartWindowDrag">
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource ThemeBackground}" />
+        </Grid.Background>
+        <ContentPresenter Content="{Binding}" Margin="10" />
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.3" BlurRadius="38" ShadowDepth="8" />
+        </Grid.Effect>
     </Grid>
 </Window>

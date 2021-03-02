@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using SliderDemo.Shell.Services;
 
 namespace SliderDemo.Shell.Views
@@ -9,6 +10,12 @@ namespace SliderDemo.Shell.Views
         {
             DataContext = ViewModel;
             InitializeComponent();
+        }
+
+        private void StartWindowDrag(object Sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                DragMove();
         }
     }
 }
